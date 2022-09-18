@@ -1,0 +1,74 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+packages:
+ - nmap
+ - iperf3
+ - mc
+ - lynx
+ - vim
+ - screen
+ - tmux
+ - raspi-config
+ - linux-modules-extra-raspi
+users:
+ - name: clvr-user
+   primary-group: users
+   shell: /bin/bash
+   sudo: ALL=(ALL) NOPASSWD:ALL
+   groups: users
+   ssh_authorized_keys:
+   - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/5uB7iPzwpM9JSW6gzx2U3wEVIw8qUeXoYw5wzrfKr29bGxGaRGEqOmICKAdmsho6Sysd9mPPmu3XMF4kJFCBO5K1wVuy/UEyNRiUw5GTQ6r5tTj518E8apbBf9r6ieHdnK6ENKmrgtAdu5N0jcMIFmWv6ixcmTijGuvsfsy3EeWDSPTLcQ7fKklUW8DlIKjcWH7JvQ6WEpog29C9ctz9GToQ4TJNQAaFW6RFC/PXG7jzY08GOpK9IgROnws8eT/hxQ6S9Jbyo1bDtX7+1ay1yT1yDL6xoZprYgVsoB2HdaK/rvT4ntC5L2FxD2eNRSERzUHA4pYPAzkapWu8tbF2a5Jr7JxlnIq8/9BS88pYX1EHiPtSGpxni8ahlgVGmyvvnmm+PIbuD1QaugPTNDdzygC6EKMw2SDCzhFZOfOiQ6tZM2tHEN/o0531L+PSXe5i0gUjoXRHOdx5UpodNhUlR5Kkcmnag2eZ5/YwVQnKtxOgChDr7KSNccQNO8xtkA8= cmarquez-russo@rog'
+   - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDgnkq1SUNTlV2rlUG+ynPXTnH7JzxSHPH3f4k78GmnhpxCaCn2r+mauT1WxNKNtm3iaT0crD5yzKLQq/VX4doiSxWUOeKOUPlnokiyGltIqEuTZc3GM9Acy450NVS57ZJHGVCrL3uwqBtiRwv7tOuHv6ml1GiqD5/gAVQjPOrjGQzfhM+zxY0XG6D7N2ZPxdPMqMQUE0k9FFBNSHV0q5Jk5WbQoOGQswtXMU4W5efeqdP+YiAHYAVtJhTuNAu4G31ZiCLPdprN0RzkrzcS0vLxge5p8jg7LwgrknwO4NAgim9ZjMtjtX0mWD8JdK02b+gQ0vvP0UpOMCLjufkUOu02IXUniFAS6bRIrcnlk03I6b0B9D87533SMFG7AbcdDnqpai6Vw5ttNtzcQ7KFAuj3RnQQnXg4kngW1eEskJvAYJGbYH/zuMQNXbhyHrIPKLu+kTulVuCkndhEL6KPXggIJuweBLjgSKF4kcet1jw1lq8KQAMmo5sul3dyQ6NHcpwI47en9JeZdwHpCgfItv86tcR5ZpOnhGQAjVwbG1+a6Rszzzjr+C/qyo5KnEy0PRoqGJd+JizDesclqknA/Ny5SFARnckZ9vgTSzSMQEXZRSrb71qHn9B/4SYhTdr+SrIxP0LCxNJhkh61NSlBbf6Ec2wHZsAcwr4E7H+j+8PHsQ== cristian04@Cristians-MBP'
+   - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDR6pUqobnbyzNOkVlQ9QumHpJ7O5DHjvYTFjVKGE4c1taG8FIYaaaOTI95g6G5T0xQhCsTnCUekEO+huylE0U20lqjfLp2yUl1cBCCxSCzqAgvRCgxy83byCGtX4Kcu3gGzSqjVze4bh9zVC09FdedpkUTwfdk3Bzrm4Smosx54V7HiJ3+yfYvQQVmHk+EMu7B5gRwmPt2iivM2b4ypXaisBXCA3/BqUhPOkRHsIf1xEiywJ/f22898PxuNdalROzVFKo1c7HAy/X8WYAezuAFAbl5BHFxZTGJALoT3fB0EaQeIt/ZlHF80CbmSgHuXsCU3O3NHh90g9wfR3XZRJp7 cristian.russo@ubuntu.cristian-cloud'
+   - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+TDVj8OBnMsf10Vs7GyJ32YP7+Ncyo1ls6ogPczslhVz0gNOv7VaGyM2f8+nZ0mzYl5h4zXfa8gBn9LwZ8SChBIH9TNRH93r2fKHYBuF6tSYQPQUkJIZemL4MtZp7aYg2GUHRMy1o3R3beh10in6jwV1WhsTesGJDpQTqRK2//gVInkuylUdgl1dp9l4lvhNzAAu0e4+SRMTGZZg3Z57HtYQGD9YeepdmHNLwe1esN0vtSkBot47itbgN2VGTVNDhHQ13wEfnZ9wt3mb7wxRxU3BkXjytwVgn77JqTYOn/qgj18hXuDxCeagVLuwO5SKvo0x8w0dZL/wAgeyKzFOEvtyw1fUfbqjIVF/NdrBZzAJrN4Wjav96E9z5OEjP1JcCyT6tGDvC+U+LCnnF62lDPiY+eTieavyaFuiwpCRDTnPWxaFHO6mbWP/DaH3P0cr9hymqW7wXCLRuwtkrTJBjuqvHkgozfYxpbQUO5Cw7Alp58PJ+LFF6iZ/bLDDkhss= cristian.russo@MacBook-Air.cristian-cloud'
+   - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvSheGDDTjeIFjleaeb983ax6WuRY4SGt4FsNDNbPVceEyObqprNWD4T82QJRMG+XypJEC81nJ4EbSlzQRi6r3vO+n5RgPf+cx8/cJRnk7ONgXYa18pcP/iVRpLganDFqmWQsU9hvABtZg4yZS2UKNzs7lChK9dK2F1NiD72MECPLUtuPa7Q9ztR2xIqkjjY0kfXU8GtUB1rfkFTKFPG9JNrHOS9NLDPCvq03/xnvfdOYIqEQf39UKV22qpXdSndiy/AvvA+ntuYki0oR2SlDf+0jsnxvxOPCCuasuHeNgCR7XQ6ynKIpG8AaFYr4g3oC3ZqJm34vBnyxQH4Q3BaqBB1+OLr20I3Yc0Y5fDpQMji2qVtuA/zDNFOx11mg6tOj0Tr+usjyg7IriXBV9WdrS4RSIZ8vDM8Q3HWncxpwIS26vqgsK+jv4KfYxI8HO7qMmQ5MnD3Xxjhe1eCTd92uo+n/Qp9U63P3dqaXdh9TN0hbP54FEwXaG3vxBjy/gG98= Cristian@CLVR-LAPTOP-WIN'    
+   - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC09qgo5yLSWoSGLhKSkIol5O4kaccbfAHnSZEJG9t0Q3y+ZjGFSILIDA4H6A9Ht0U8jL6b2CUPAIpiP34vlMlW7Rks1lue5hWZ9p3trrUuF6PYX0RamzuaAeHrcFjh5Wx7uiFAqaG+3V4WG/oWf2SM8yXTU/21lFkH08sHiPl/Fu7jOHXsGvmzAgDX9iRb+B3Tudt+zjo5bZR8CKpM6D+xDIKttiF9gXb98XgI9zoa8w+OpoZlmPXSpwD0YR9BNtnrYivIRnojOYLiQU8sPQb6TDzH0gCEehiiQPtf5c04nudB8pnnu7xagbtfGYy67pfe25WyZgzvnNmRQxFQwivBb4eksDwZ33wOWxsEOg62mIQ71HyDXJU6o3IdZ6QkT2jYasjlRfKojW7fHl85KPO4j0k8hIdme8z0zgrHgEUUbhJPqG1jaeOUYkjc2tnpIYI9uJYHjsdqPthzrHjaY+/Iu5SLv85sRJK0sRCW60rI6UpAwU0IlQyfH/INvVUpIss= cristian@CLVR-LAPTOP-WIN'
+
+locale: en_NZ.UTF-8
+locale_configfile: /etc/default/locale
+resize_rootfs: True
+hostname: ssd03
+manage_etc_hosts: true
+final_message: "The system is finally up, after $UPTIME seconds"
+timezone: 'Pacific/Auckland'
+chpasswd:
+  list: |
+    clvr-user:$5$clvrcloud$nqDwFCE4OoZf5DFrlB4NB48QkQkYfnDPoSaBi5YlZnA
+  expire: False
+ssh_pwauth: True
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    permissions: '0644'
+    content: |
+      network:
+        version: 2
+        ethernets:
+          eth0:
+            dhcp4: true
+            optional: true  
+  - path: /etc/issue
+    encoding: b64
+    content: ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLFwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXFxcLF8KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcYCAsXAogICAgICAgICAgICAgICAgICAgICAgICAgIF9fLC4tIiA9X18pCiAgICAgICAgICAgICAgICAgICAgICAgIC4iICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgICAsXy8gICAsICAgIFwvXF8KICAgICAgICAgICAgICAgICAgICAgIFxffCAgICApXy1cIFxfLWAKICAgICAgICAgICAgICAgICAgICAgICAgYC0tLS0tYCBgLS1gCiAgICAgICAgICArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKICAgICAgICAgIHwgVGhpcyBpcyBhIGNvbnRyb2xsZWQgYWNjZXNzIHN5c3RlbS4gVGhlIGFjdGl2aXRpZXMgfAogICAgICAgICAgfCBvbiB0aGlzIHN5c3RlbSBhcmUgbW9uaXRvcmVkLiAgICAgICAgICAgICAgICAgICAgICB8CiAgICAgICAgICB8IEV2aWRlbmNlIG9mIHVuYXV0aG9yaXNlZCBhY3Rpdml0aWVzIG1heSBiZSAgICAgICAgIHwKICAgICAgICAgIHwgZGlzY2xvc2VkIHRvIHRoZSBhcHByb3ByaWF0ZSBhdXRob3JpdGllcy4gICAgICAgICAgfAogICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEBDTFZSIExBQlMgICB8CiAgICAgICAgICArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsK
+
+phone_home:
+  url: http://nas.cristian-cloud:1880/ws/home/
+  post: all
+  tries: 16
+
+runcmd:
+  - [sudo, netplan, apply]
+  - [
+      sudo,
+      sed,
+      -i,
+      's/#Banner none/Banner \/etc\/issue/g',
+      /etc/ssh/sshd_config,
+    ]
+  - [sudo, systemctl, restart, sshd]
+power_state:
+  delay: "+1"
+  mode: reboot
+  message: Bye Bye. Setup completed
+  timeout: 30
