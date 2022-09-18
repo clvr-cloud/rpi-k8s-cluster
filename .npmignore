@@ -1,0 +1,15 @@
+# Make sure to exclude test data directory
+
+# Don't distribute the dependencies
+node_modules/
+
+# Don't distribute examples with the module
+examples/
+
+# Don't distribute source maps
+dist/*.map
+
+# Don't distribute the debug build
+
+# Don't distribute screenshot
+screenshots/

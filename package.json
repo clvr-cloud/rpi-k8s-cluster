@@ -1,0 +1,21 @@
+{
+  "name": "repo-template",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A template for creating new repositories in the @clvr-cloud organization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardLitt/repo-template.git"
+  },
+  "keywords": ["clvr-cloud", "clvr", "template", "docs"],
+  "author": "Cristian Russo <cristian@clvr.cloud> (https://www.cristianmarquez.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clvr-cloud/repo-template/issues"
+  },
+  "homepage": "https://github.com/clvr-cloud/repo-template#readme"
+}
