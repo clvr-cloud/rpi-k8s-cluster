@@ -19,13 +19,12 @@ chmod +x k3sup-darwin-arm64
 flash -F cmdline.txt --userdata ssd01.yml ubuntu-22.04.1-preinstalled-server-arm64+raspi.img
 ```
 
-k3sup-darwin-arm64 -F cmdline.txt --userdata ssd01.yml ubuntu-22.04.1-preinstalled-server-arm64+raspi.img
 
 
 ## Provision
 export SSD01=192.168.4.56  (Master)
 
-./k3sup install --ip $SSD01 --user clvr-user --cluster
+./k3sup-darwin-arm64 install --ip $SSD01 --user clvr-user --cluster
 <!-- ./k3sup join --ip $SSD02 --user clvr-user --server-user clvr-user --server-ip $SSD01 --server 
 ./k3sup join --ip $SSD03 --user clvr-user --server-user clvr-user --server-ip $SSD01 --server 
 ./k3sup join --ip $SSD04 --user clvr-user --server-ip $SSD01
