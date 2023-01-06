@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deployment
+  name: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deployment
+    spec:
+      containers:
+      - image: alpine
+        name: writing-in-folders
+        resources: {}
+        volumeMounts:
+        - mountPath: "/testing" # Folder in pod mounting nfsclaim
+          name: mypvc
+        command: [ "/bin/sh", "-c", "--" ]
+        args: [ "while true; do cp -R / /testing/$(hostname)/; done;" ]
+      - image: alpine
+        name: writing-in-the-same-file
+        resources: {}
+        volumeMounts:
+        - mountPath: "/testing" # Folder in pod mounting nfsclaim
+          name: mypvc
+        command: [ "/bin/sh", "-c", "--" ]
+        args: [ "while true; do hostname >>/testing/db.db; done;" ]
+      tolerations:
+       - key: "pine64"
+         operator: "Exists"
+         effect: "NoSchedule"
+      volumes:
+      - name: mypvc             # volume name the container can mount
+        persistentVolumeClaim: # Source of storage
+          claimName: deployment-claim # name of pvc created`
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: deployment-claim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "nfs-client" # nfs-client is default value of helm chart, change accordingly
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi # This is ignored on NFS

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backend-claim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "nfs-client" # nfs-client is default value of helm chart, change accordingly
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 8Gi

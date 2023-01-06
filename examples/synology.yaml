@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: testing-synology-pvc
+  name: testing-synology-pvc
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: testing-synology-pvc
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: testing-synology-pvc
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+        volumeMounts:
+        - mountPath: "/var/www/html" # Folder in pod mounting nfsclaim
+          name: mypd
+      volumes:
+      - name: mypd             # volume name the container can mount
+        persistentVolumeClaim: # Source of storage
+          claimName: test-claim  # name of pvc created`
