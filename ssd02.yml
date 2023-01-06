@@ -12,6 +12,7 @@ packages:
  - tmux
  - raspi-config
  - linux-modules-extra-raspi
+ - nfs-common
 users:
  - name: clvr-user
    primary-group: users
