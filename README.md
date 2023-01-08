@@ -1,9 +1,10 @@
 # RPI-K8S-Cluster
 
 [![Slack](https://slack.clvr.cloud/badge.svg)](https://slack.clvr.cloud)
+![VR K8S](docs/k8s.drawio.png "Kubernetes VR")
 
-Provisioning scripts for the Kubernetes Cluster using RPIs
-
+Provisioning scripts for the Kubernetes Cluster using RPIs on Ubuntu 22.04. An ansible playbook is also available to demo the k8s integration.
+This cluster is used for Training and Presentations
 
 ## Downloads the Flash tool
 
